@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title>Fun Vuejs</title>
+    <style>
+      .green {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">    
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      const Counter = {
+        data(){
+          return {
+            count: 0
+          }
+        }
+
+        methods : {
+          increaseCount(){
+            this.count++
+          }
+
+        }
+
+          template:`
+            <div id="container">
+                <h1 class="green">{{ title }}</h1>
+                <h2 :style="{color: 'red' }">{{ description}}</h2>
+            </div>
+           `
+          }
+          
+      Vue.createAPP(
+          Title,
+          { title: 'Title', description: 'Description'}
+        ).mount("#app")
+    </script>
+  </body>
+</html>

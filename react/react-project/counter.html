@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>Fun React!</title>
+    <style>
+      .green {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/babel-standalone@6/babel.min.js"
+    ></script>
+    <script type="text/babel">
+      const {useState} = React;
+
+      function Counter() {
+        const[count, setCount]=useState(0);
+        const increaseCount = () => {
+        //count++
+        setCount(count + 1)
+        setCount(count + 1)
+        setCount(count => count + 1)
+        setCount(count => count + 1)
+
+        }
+        return (
+          <div>
+            <p>count:{count}</p>
+            <button onClick = {increaseCount}>up</button>
+          </div>
+        )
+      };
+
+      ReactDOM.render(<Counter/>,document.getElementById("root"));
+    </script>
+  </body>
+</html>

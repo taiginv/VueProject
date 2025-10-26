@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title>Fun React!</title>
+    <style>
+      .green {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/babel-standalone@6/babel.min.js"
+    ></script>
+    <script type="text/babel">
+
+      //useState
+      const fruits = ["banana","mango","strawberry"]
+      const vegetables =[
+        {id:1, name:"tomatoes"},
+        {id:2, name:"carrots"},
+      ]
+
+      const Example = () => {
+        const fruitList = fruits.map((fruits,idx)=>
+          <li key={idx}>{fruits}</li>
+        )
+        const vegetablList = vegetables.map(vegetable =>
+            <li key={vegetable.id}>{vegetable.name}</li>
+      )
+        return (
+          <React.Fragment>
+            <ul>
+              {fruitList}
+            </ul>
+            <ul>
+              {vegetablList}
+            </ul>
+          </React.Fragment>
+        )
+      }
+
+      ReactDOM.render(<Example/>,document.getElementById("root"));
+    </script>
+  </body>
+</html>

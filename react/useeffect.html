@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <title>Fun React!</title>
+    <style>
+      .green {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/babel-standalone@6/babel.min.js"
+    ></script>
+    <script type="text/babel">
+
+      //useState
+      const {useState, useEffect} = React;
+
+      function Something() {
+        console.log("something function just invoked!")
+        const [countA, setCountA]= useState(0)
+        const [countB, setCountB]= useState(0)
+
+        useEffect(()=>{
+          console.log("everythime")
+        })
+
+        useEffect(()=>{
+          console.log("only first")
+        },[])
+
+        useEffect(()=>{
+          console.log("A!")
+          //console.log("추가되었을 때");
+          //return () => console.log("제거되었을 때");
+        },[countA]);
+
+        useEffect(()=>{
+          console.log("B!")
+          //console.log("추가되었을 때");
+          //return () => console.log("제거되었을 때");
+        },[countB]);
+
+        return (
+          <React.Fragment>
+            <p>{countA} / {countB}</p>
+            <button onClick={()=>setCountA(countA + 1)}>A</button>
+            <button onClick={()=>setCountB(countB + 1)}>B</button>
+          </React.Fragment>
+        )
+       
+      }
+
+      ReactDOM.render(<Something/>,document.getElementById("root"));
+
+     // setTimeout(
+     //   () => ReactDOM.unmountComponentAtNode(document.getElementById("root")),
+     //   3000
+     // );
+    </script>
+  </body>
+</html>

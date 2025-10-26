@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>Fun React!</title>
+    <style>
+      .green {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/babel-standalone@6/babel.min.js"
+    ></script>
+    <script type="module" src="https://unpkg.com/prop-types@15.7.2/p"></script>
+    <script type="text/babel">
+      function Title({title, description}) {
+        return (
+          <div id="container">
+            <h1 className="green">{title}</h1>
+            <h2 style={{ color: 'red' }}>{description}</h2>
+          </div>
+        )
+      };
+
+      Title.propTypes = {
+          title: PropTypes.string,
+          description: PropTypes.string
+       } 
+
+      ReactDOM.render(
+        <Title  title="Title" description="Description"/>, 
+        document.getElementById("root")
+      );
+    </script>
+  </body>
+</html>
